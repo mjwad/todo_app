@@ -14,6 +14,10 @@
                 <td><%= todo.description %></td>
                 <td><%= link_to "Edit", edit_tbl_path(todo) %></td>
                 <td><%= link_to "Show", tbl_path(todo) %></td>
+                <td><%= link_to "Destroy", tbl_path(todo), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></td>
             </tr>
         <% end %>
     </table>

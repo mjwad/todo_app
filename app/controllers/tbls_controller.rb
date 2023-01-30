@@ -37,6 +37,12 @@ class TblsController <ApplicationController
     @todo=Tbl.all
   end
 
+  def destroy
+    @todo = Tbl.find(params[:id])
+    @todo.destroy
+    redirect_to tbl_path(), status: :see_other
+  end
+
   private
 
   def tbl_params
