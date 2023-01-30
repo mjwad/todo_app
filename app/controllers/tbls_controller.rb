@@ -33,6 +33,10 @@ class TblsController <ApplicationController
     end
   end
 
+  def index
+    @todo=Tbl.all
+  end
+
   private
 
   def tbl_params

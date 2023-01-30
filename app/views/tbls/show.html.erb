@@ -1,10 +1,12 @@
-<h1>
+<h4>
   <% if @tblid %>
     <p>
-      name: <%=@tblid.name%>
+      Name: <%=@tblid.name%>
     </p>
     <p>
-      description: <%=@tblid.description%>
+      Description: <%=@tblid.description%>
     </p>
   <% end %>
-</h1>
+</h4>
+<%= link_to "Edit", edit_tbl_path(@tblid) %> |
+<%= link_to "Back to Todo Listing", tbls_path() %>

@@ -1,0 +1,24 @@
+<h3>List of All Todos</h3>
+<p>
+    <%= link_to "Create a Todo" , new_tbl_path %>
+</p>
+<% if @todo%>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <% @todo.each do |todo|%>
+            <tr>
+                <td><%= todo.name%></td>
+                <td><%= todo.description %></td>
+                <td><%= link_to "Edit", edit_tbl_path(todo) %></td>
+                <td><%= link_to "Show", tbl_path(todo) %></td>
+            </tr>
+        <% end %>
+    </table>
+<% else %>
+    <h4>
+        Nothing to display!!!
+    <h4>
+<% end %>
