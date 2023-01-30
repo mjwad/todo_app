@@ -1,5 +1,7 @@
 class TblsController <ApplicationController
 
+  before_action :set_todo,only: [:edit, :update, :show, :destory]
+
   def new
     @todo=Tbl.new
   end
@@ -15,16 +17,12 @@ class TblsController <ApplicationController
   end
 
   def show
-    @tblid=Tbl.find(params[:id])
   end
 
   def edit
-    @todo=Tbl.find(params[:id])
   end
 
   def update
-    @todo=Tbl.find(params[:id])
-
     if @todo.update(tbl_params)
       flash[:notice]="Todo is Updated Successfully"
       redirect_to tbl_path(@todo)
@@ -38,13 +36,15 @@ class TblsController <ApplicationController
   end
 
   def destroy
-    @todo = Tbl.find(params[:id])
     @todo.destroy
     redirect_to tbl_path(), status: :see_other
   end
 
   private
 
+  def set_todo
+    @todo = Tbl.find(params[:id])
+  end
   def tbl_params
     params.require(:tbl).permit(:name,:description)
   end
