@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -54,6 +54,7 @@ gem 'oj'
 
 
 group :development, :test do
+  gem "sqlite3", "~> 1.4"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
@@ -69,6 +70,10 @@ group :development do
   # gem "spring"
 end
 
+group :production do
+  gem 'gem'
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
@@ -80,3 +85,5 @@ gem "hotwire-rails", "~> 0.1.3"
 
 gem "rails-ujs", "~> 0.1.0"
 gem 'jquery-rails'
+
+gem "ruby-lsp", "~> 0.1.0", :group => :development
